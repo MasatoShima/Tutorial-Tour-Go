@@ -1,7 +1,7 @@
 /*
 Name: sample.go
 Created by: Masato Shima
-Created on: 2020/05/16
+Created on: 2020/10/12
 Description:
 テンプレートファイルを読み込み, render する
 */
