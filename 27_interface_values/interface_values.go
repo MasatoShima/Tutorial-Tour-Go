@@ -1,0 +1,44 @@
+// 2020/11/17
+
+package main
+
+import (
+	"fmt"
+	"math"
+)
+
+type F float64
+
+type T struct {
+	S string
+}
+
+type I interface {
+	M()
+}
+
+func (f F) M() {
+	fmt.Println(f)
+}
+
+func (t *T) M() {
+	fmt.Println(t.S)
+}
+
+func main() {
+	var i I
+
+	i = &T{"Hello"}
+	describe(i)
+	i.M()
+
+	i = F(math.Pi)
+	describe(i)
+	i.M()
+}
+
+func describe(i I) {
+	fmt.Printf("(%v, %T)\n", i, i)
+}
+
+// End
