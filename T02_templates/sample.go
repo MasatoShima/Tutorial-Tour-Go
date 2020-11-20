@@ -19,8 +19,8 @@ func main() {
 	}
 
 	funcMap := template.FuncMap{
-		"twice":        twice,
-		"addAnyNumber": addSomeNumber,
+		"twice":         twice,
+		"addSomeNumber": addSomeNumber,
 	}
 
 	tpl := template.Must(
@@ -34,12 +34,12 @@ func main() {
 	}
 }
 
-func twice(num int) int {
-	return num * 2
+func twice(num int) (int, error) {
+	return num * 2, nil
 }
 
-func addSomeNumber(x int, y int) int {
-	return x + y
+func addSomeNumber(x int, y int) (int, error) {
+	return x + y, nil
 }
 
 // End
