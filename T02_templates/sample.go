@@ -3,6 +3,7 @@
 package main
 
 import (
+	"fmt"
 	"os"
 	"text/template"
 )
@@ -10,17 +11,20 @@ import (
 type inputValues struct {
 	Name   string
 	Number int
+	String string
 }
 
 func main() {
 	inputs := inputValues{
 		Name:   "world",
 		Number: 5,
+		String: "Hello",
 	}
 
 	funcMap := template.FuncMap{
 		"twice":         twice,
 		"addSomeNumber": addSomeNumber,
+		"joinStrings":   joinStrings,
 	}
 
 	tpl := template.Must(
@@ -40,6 +44,10 @@ func twice(num int) (int, error) {
 
 func addSomeNumber(x int, y int) (int, error) {
 	return x + y, nil
+}
+
+func joinStrings(addString string, base string) (string, error) {
+	return fmt.Sprintf("%s %s", base, addString), nil
 }
 
 // End
